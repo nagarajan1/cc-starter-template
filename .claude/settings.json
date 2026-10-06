@@ -1,0 +1,23 @@
+{
+  "model": "claude-sonnet-5-5",
+  "permissions": {
+    "bash": {
+      "allow": ["ls", "find", "grep", "git", "cat", "head", "tail"],
+      "deny": ["rm -rf", "rm -rfi"]
+    }
+  },
+  "approvals": {
+    "required": {
+      "WebFetch": true
+    }
+  },
+  "fileAccess": {
+    "allow": {
+      "read": ["**/*"]
+    },
+    "deny": {
+      "read": [".env", "secrets/**/*", ".env.*"],
+      "write": ["**/*", "!src/**/*"]
+    }
+  }
+}
